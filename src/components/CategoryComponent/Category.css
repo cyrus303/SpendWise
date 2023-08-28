@@ -1,0 +1,34 @@
+.category-component{
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+
+
+/*=================================== */
+       /* listing-categories */
+/*=================================== */
+.listing-categories-container{
+
+}
+
+.list-container{
+  /* display: flex; */
+}
+
+.list-item{
+  display: flex;
+  justify-content: flex-start;
+  margin: 1rem;
+  width: 300px;
+}
+
+ul{
+  list-style-type: none;
+}
