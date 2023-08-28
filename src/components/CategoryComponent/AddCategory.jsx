@@ -29,12 +29,14 @@ const AddCategory = ({fetchCategories}) => {
   return (
     <div className="add-categories-container">
       <h3>Add Categories</h3>
-      <input
-        type="text"
-        value={inputText}
-        onChange={() => handleChange(event)}
-      />
-      <button onClick={handleClick}>Create</button>
+      <form onSubmit={handleClick}>
+        <input
+          type="text"
+          value={inputText}
+          onChange={() => handleChange(event)}
+        />
+        <button type="submit">Create</button>
+      </form>
     </div>
   );
 };
