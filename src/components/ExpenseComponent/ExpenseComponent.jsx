@@ -19,7 +19,6 @@ const ExpenseComponent = () => {
       });
   };
 
-  console.log(expense);
   return (
     <div className="expense-component-container">
       <ListExpense expense={expense} />

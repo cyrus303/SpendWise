@@ -1,3 +1,5 @@
+import ListTableRow from './ListTableRow';
+
 const ListExpense = ({expense}) => {
   return (
     <div className="table-container">
@@ -5,13 +7,18 @@ const ListExpense = ({expense}) => {
       <table>
         <thead>
           <tr>
-            <th>Titel</th>
+            <th>Title</th>
             <th>Category</th>
             <th>Amount</th>
             <th>Date</th>
             <th>Actions</th>
           </tr>
         </thead>
+        <tbody>
+          {expense.map((item) => {
+            return <ListTableRow expenseItem={item} />;
+          })}
+        </tbody>
       </table>
     </div>
   );
