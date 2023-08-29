@@ -21,7 +21,7 @@ const AddExpense = ({fetchExpenses}) => {
 
   useEffect(() => {
     fetchCategoriesTypes();
-  }, []);
+  });
 
   const fetchCategoriesTypes = async (id) => {
     await axios({
