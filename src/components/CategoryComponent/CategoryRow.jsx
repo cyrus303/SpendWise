@@ -62,7 +62,7 @@ const CategoryRow = ({data, index, categories, fetchCategories}) => {
         onChange={() => handleInputChange(event)}
       />
       <button onClick={() => handleEditing(event, index)}>
-        Edit
+        {editText ? 'Update' : 'Edit'}
       </button>
       <button onClick={() => handleDelete(event, index)}>
         Delete
