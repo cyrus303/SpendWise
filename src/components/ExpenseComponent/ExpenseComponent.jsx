@@ -22,7 +22,7 @@ const ExpenseComponent = () => {
   return (
     <div className="expense-component-container">
       <ListExpense expense={expense} />
-      <AddExpense />
+      <AddExpense fetchExpenses={fetchExpenses} />
     </div>
   );
 };

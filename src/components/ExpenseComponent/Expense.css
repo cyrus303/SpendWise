@@ -28,3 +28,12 @@ tr:nth-child(even) {
 tr:hover {
   background-color: #ddd;
 }
+
+.form-container{
+  display: flex;
+  flex-direction: column;
+}
+
+form > * {
+  margin: 0.5rem;
+}

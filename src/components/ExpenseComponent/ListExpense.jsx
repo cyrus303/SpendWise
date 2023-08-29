@@ -16,7 +16,7 @@ const ListExpense = ({expense}) => {
         </thead>
         <tbody>
           {expense.map((item) => {
-            return <ListTableRow expenseItem={item} />;
+            return <ListTableRow expenseItem={item} key={item._id} />;
           })}
         </tbody>
       </table>

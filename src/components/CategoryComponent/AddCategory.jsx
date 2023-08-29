@@ -8,7 +8,8 @@ const AddCategory = ({fetchCategories}) => {
     setInputText(event.target.value);
   };
 
-  const handleClick = () => {
+  const handleClick = (event) => {
+    event.preventDefault();
     setInputText('');
     postData();
   };
@@ -29,7 +30,7 @@ const AddCategory = ({fetchCategories}) => {
   return (
     <div className="add-categories-container">
       <h3>Add Categories</h3>
-      <form onSubmit={handleClick}>
+      <form onSubmit={() => handleClick(event)}>
         <input
           type="text"
           value={inputText}
