@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
-import axios from 'axios';
 import CategoryRow from './CategoryRow';
+import {useContext} from 'react';
+import {ExpenseContext} from '../../context/ExpenseContext';
 
-const ListingCategories = ({categories, fetchCategories}) => {
+const ListingCategories = () => {
+  const {categories, fetchCategories} = useContext(ExpenseContext);
+
   return (
     <div className="listing-categories-container">
       <h3>Listing Categories ({categories.length})</h3>

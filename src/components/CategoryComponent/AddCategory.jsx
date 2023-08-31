@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
-import axios from 'axios';
+import {useState, useContext} from 'react';
+import {ExpenseContext} from '../../context/ExpenseContext';
 
-const AddCategory = ({fetchCategories}) => {
+const AddCategory = () => {
   const [inputText, setInputText] = useState('');
+  const {postData} = useContext(ExpenseContext);
 
   const handleChange = (event) => {
     setInputText(event.target.value);
@@ -10,21 +11,10 @@ const AddCategory = ({fetchCategories}) => {
 
   const handleClick = (event) => {
     event.preventDefault();
-    setInputText('');
-    postData();
-  };
-
-  const postData = async () => {
-    await axios({
-      method: 'post',
-      url: 'http://localhost:5555/api/categories',
-      responseType: 'json',
-      data: {
-        name: `${inputText}`,
-      },
-    }).then((response) => {
-      fetchCategories();
-    });
+    if (inputText.length > 0) {
+      setInputText('');
+      postData(inputText);
+    }
   };
 
   return (

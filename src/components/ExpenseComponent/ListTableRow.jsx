@@ -1,15 +1,17 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
+import {ExpenseContext} from '../../context/ExpenseContext';
 
 const ListTableRow = ({expenseItem, fetchExpenses}) => {
+  const {categories} = useContext(ExpenseContext);
   const {title, amount, date, categoryId} = expenseItem;
   const [categoryType, setCatergoryType] = useState('');
 
   useEffect(() => {
-    fetchCategory();
-  }, []);
+    fetchCategoryType();
+  }, [categories]);
 
-  const fetchCategory = async () => {
+  const fetchCategoryType = async () => {
     await axios
       .get('http://localhost:5555/api/categories/' + categoryId)
       .then((response) => {

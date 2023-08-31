@@ -1,15 +1,12 @@
-import React from 'react';
-import Card from './Card';
-import {useContext} from 'react';
-import {ExpenseContext} from '../../context/ExpenseContext';
+import TotalAmountCard from './TotalAmountCard';
+import CategoryCard from './CategoryCard';
+import './stats.css';
 
 const StatsComponents = () => {
-  const categories = useContext(ExpenseContext);
-
-  console.log(categories);
   return (
-    <div>
-      <Card />
+    <div className="stats-container">
+      <TotalAmountCard />
+      <CategoryCard />
     </div>
   );
 };

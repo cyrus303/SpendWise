@@ -34,7 +34,6 @@ const CategoryRow = ({data, index, categories, fetchCategories}) => {
   };
 
   const editData = async (id) => {
-    // console.log('edit', id);
     await axios({
       method: 'put',
       url: 'http://localhost:5555/api/categories/' + id,
@@ -42,8 +41,7 @@ const CategoryRow = ({data, index, categories, fetchCategories}) => {
       data: {
         name: `${inputText}`,
       },
-    }).then((response) => {
-      console.log(response);
+    }).then(() => {
       fetchCategories();
     });
   };
@@ -51,6 +49,7 @@ const CategoryRow = ({data, index, categories, fetchCategories}) => {
   const handleInputChange = (event) => {
     setInputText(event.target.value);
   };
+
   return (
     <div key={data._id} className="list-item">
       <li style={viewMode}> {data.name}</li>

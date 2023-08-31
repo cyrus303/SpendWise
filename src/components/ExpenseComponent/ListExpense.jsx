@@ -1,6 +1,9 @@
 import ListTableRow from './ListTableRow';
+import {useContext} from 'react';
+import {ExpenseContext} from '../../context/ExpenseContext';
 
-const ListExpense = ({expense, fetchExpenses}) => {
+const ListExpense = () => {
+  const {expense, fetchExpenses} = useContext(ExpenseContext);
   return (
     <div className="table-container">
       <h3>Listing Expenses - ({expense.length})</h3>

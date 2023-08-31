@@ -28,11 +28,25 @@ const ExpenseContextProvider = ({children}) => {
       });
   };
 
+  const postData = async (inputText) => {
+    await axios({
+      method: 'post',
+      url: 'http://localhost:5555/api/categories',
+      responseType: 'json',
+      data: {
+        name: `${inputText}`,
+      },
+    }).then(() => {
+      fetchCategories();
+    });
+  };
+
   const contextValue = {
     categories,
     fetchCategories,
     expense,
     fetchExpenses,
+    postData,
   };
 
   return (
