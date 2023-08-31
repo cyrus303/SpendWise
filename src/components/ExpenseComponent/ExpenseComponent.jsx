@@ -1,23 +1,12 @@
-import React, {useState, useEffect} from 'react';
 import ListExpense from './ListExpense';
 import AddExpense from './AddExpense';
-import axios from 'axios';
 import './Expense.css';
 
+import {useContext} from 'react';
+import {ExpenseContext} from '../../context/ExpenseContext';
+
 const ExpenseComponent = () => {
-  const [expense, setExpense] = useState([]);
-
-  useEffect(() => {
-    fetchExpenses();
-  }, []);
-
-  const fetchExpenses = async () => {
-    await axios
-      .get('http://localhost:5555/api/expenses')
-      .then((response) => {
-        setExpense(response.data);
-      });
-  };
+  const {expense, fetchExpenses} = useContext(ExpenseContext);
 
   return (
     <div className="expense-component-container">

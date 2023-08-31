@@ -1,23 +1,12 @@
-import React, {useEffect, useState} from 'react';
 import ListingCategories from './ListingCategories';
 import AddCategory from './AddCategory';
-import axios from 'axios';
 import './Category.css';
 
+import {useContext} from 'react';
+import {ExpenseContext} from '../../context/ExpenseContext';
+
 const CategoryComponent = () => {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
-
-  const fetchCategories = async () => {
-    await axios
-      .get('http://localhost:5555/api/categories')
-      .then((response) => {
-        setCategories(response.data);
-      });
-  };
+  const {categories, fetchCategories} = useContext(ExpenseContext);
 
   return (
     <div className="category-component">
@@ -26,8 +15,8 @@ const CategoryComponent = () => {
         fetchCategories={fetchCategories}
       />
       <AddCategory
-        fetchCategories={fetchCategories}
         categories={categories}
+        fetchCategories={fetchCategories}
       />
     </div>
   );

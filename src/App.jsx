@@ -21,15 +21,18 @@ import CategoryComponent from './components/CategoryComponent/CategoryComponent'
 import ExpenseComponent from './components/ExpenseComponent/ExpenseComponent';
 import GraphComponent from './components/GraphComponent/GraphComponent';
 import StatsComponents from './components/StatsComponent/StatsComponents';
+import {ExpenseContextProvider} from './context/ExpenseContext.jsx';
 
 function App() {
   return (
     <>
-      <h1>Expense App</h1>
-      <StatsComponents />
-      <CategoryComponent />
-      <ExpenseComponent />
-      <GraphComponent />
+      <ExpenseContextProvider>
+        <h1>Expense App</h1>
+        <StatsComponents />
+        <CategoryComponent />
+        <ExpenseComponent />
+        <GraphComponent />
+      </ExpenseContextProvider>
     </>
   );
 }
